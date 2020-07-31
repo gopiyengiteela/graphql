@@ -3,8 +3,8 @@ graphql:
     mapping: /graphql
     enabled: true
     corsEnabled: true
-#GRAPHIQL  
-graphiql:  mapping: /graphiql  endpoint: .graphql
+
+graphiql:  mapping: /graphiql  endpoint: /graphql
   enabled: true
   pageTitle: GraphQL
   cdn:    enabled: false
