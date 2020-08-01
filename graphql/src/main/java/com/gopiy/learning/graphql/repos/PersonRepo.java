@@ -2,6 +2,7 @@ package com.gopiy.learning.graphql.repos;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
@@ -15,6 +16,20 @@ public class PersonRepo {
 	private List<Person> members = new ArrayList<>();
 
 	public List<Person> getMembers() {
-		return members;
+		return this.members;
+	}
+
+	public Person getMemberById(int id) {
+		List<Person> matched = this.members.stream().filter(m -> m.getId() == id).collect(Collectors.toList());
+		if (matched.size() > 0)
+			return matched.get(0);
+
+		return null;
+	}
+
+	public Person createMember(String name, int age) {
+		Person newPerson = new Person(this.members.size() + 1, name, age);
+		this.members.add(newPerson);
+		return newPerson;
 	}
 }

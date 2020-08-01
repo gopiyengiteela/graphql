@@ -6,4 +6,9 @@ type Person{
 
 type Query{
 	members:[Person]!
+	memberById(id:Int):Person
+}
+
+type Mutation{
+	addMember(name:String age:Int):Person
 }

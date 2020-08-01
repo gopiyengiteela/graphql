@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.gopiy.learning.graphql.repos.PersonRepo;
+import com.gopiy.learning.graphql.resolvers.PersonMutationResolver;
 import com.gopiy.learning.graphql.resolvers.PersonQueryResolver;
 
 @SpringBootApplication
@@ -20,5 +21,10 @@ public class GraphqlApplication {
 	@Bean
 	public PersonQueryResolver personQueryResolver(PersonRepo personRepo) {
 		return new PersonQueryResolver(personRepo);
+	}
+
+	@Bean
+	public PersonMutationResolver personMutationResolver(PersonRepo personRepo) {
+		return new PersonMutationResolver(personRepo);
 	}
 }
