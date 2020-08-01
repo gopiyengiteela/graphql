@@ -16,4 +16,8 @@ public class PersonQueryResolver implements GraphQLQueryResolver {
 	public List<Person> members() {
 		return personRepo.getMembers();
 	}
+
+	public Person memberById(int id) {
+		return personRepo.getMemberById(id);
+	}
 }
